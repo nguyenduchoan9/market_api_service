@@ -31,6 +31,12 @@ gem "devise"
 #Api gems
 gem 'active_model_serializers'
 
+gem 'sabisu_rails', github: "jvrsgsty/sabisu-rails"
+gem 'compass-rails'
+gem 'furatto'
+gem 'font-awesome-rails'
+gem 'simple_form'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
