@@ -23,7 +23,7 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
 
     it "returns 4 records from the database" do
       products_response = json_response
-      expect(products_response[:products]).to have(4).items
+      expect(products_response.size).to eq(4)
     end
 
     it { should respond_with 200 }
@@ -91,7 +91,7 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
 
     context "when is not updated" do
       before(:each) do
-        patch :update, { user_id: @user.id, id: @product.id,
+        patch :update, params: { user_id: @user.id, id: @product.id,
                          product: { price: "two hundred" } }
       end
 
