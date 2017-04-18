@@ -12,6 +12,11 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
       expect(product_response[:title]).to eql @product.title
     end
 
+    it "has the user as a embeded object" do
+      product_response = json_response[:product]
+      expect(product_response[:user][:email]).to eql @product.user.email
+    end
+
     it { should respond_with 200 }
   end
 
@@ -24,6 +29,13 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
     it "returns 4 records from the database" do
       products_response = json_response[:products]
       expect(products_response.size).to eq(4)
+    end
+
+    it "returns the user object into each product" do
+      products_response = json_response[:products]
+      products_response.each do |product_response|
+        expect(product_response[:user]).to be_present
+      end
     end
 
     it { should respond_with 200 }
@@ -78,7 +90,7 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
     context "when is successfully updated" do
       before(:each) do
         patch :update, params: { user_id: @user.id, id: @product.id,
-                         product: { title: "An expensive TV" } }
+                                 product: { title: "An expensive TV" } }
       end
 
       it "renders the json representation for the updated user" do
@@ -92,7 +104,7 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
     context "when is not updated" do
       before(:each) do
         patch :update, params: { user_id: @user.id, id: @product.id,
-                         product: { price: "two hundred" } }
+                                 product: { price: "two hundred" } }
       end
 
       it "renders an errors json" do
