@@ -29,7 +29,7 @@ gem 'jquery-rails'
 gem "devise"
 
 #Api gems
-gem 'active_model_serializers'
+gem 'active_model_serializers', "~> 0.8.0"
 
 gem 'sabisu_rails', github: "jvrsgsty/sabisu-rails"
 gem 'compass-rails'
@@ -52,10 +52,8 @@ group :development, :test do
 	gem 'sqlite3'
 end
 
-group :development, :test do
+group :development do
   gem 'listen', '~> 3.0.5'
-  gem "factory_girl_rails"
-  gem 'ffaker'  
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
