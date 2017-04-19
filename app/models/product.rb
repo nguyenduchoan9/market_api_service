@@ -6,15 +6,15 @@ class Product < ApplicationRecord
   # we added this line
   belongs_to :user
 
-  scope :filter_by_title, lambda { |keyword|
+  scope :filter_by_title, ->(keyword) {
     where("lower(title) LIKE ?", "%#{keyword.downcase}%" )
   }
 
-  scope :above_or_equal_to_price, lambda { |price|
+  scope :above_or_equal_to_price, ->(price) {
     where("price >= ?", price)
   }
 
-  scope :below_or_equal_to_price, lambda { |price|
+  scope :below_or_equal_to_price, ->(price) {
     where("price <= ?", price)
   }
 
