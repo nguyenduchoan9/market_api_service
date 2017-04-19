@@ -15,6 +15,10 @@ describe User do
   it { should have_many(:products) }
   it { should be_valid }
 
+  #line 20
+  it { should have_many(:products) }
+  it { should have_many(:orders) }
+
   describe "when email is not present" do
     it { should validate_presence_of(:email) }
     it { should validate_uniqueness_of(:email).ignoring_case_sensitivity }
