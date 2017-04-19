@@ -13,11 +13,9 @@ describe User do
   # we test the auth_token is unique
   it { should validate_uniqueness_of(:auth_token)}
   it { should have_many(:products) }
+  it { should have_many(:orders) }
   it { should be_valid }
 
-  #line 20
-  it { should have_many(:products) }
-  it { should have_many(:orders) }
 
   describe "when email is not present" do
     it { should validate_presence_of(:email) }
