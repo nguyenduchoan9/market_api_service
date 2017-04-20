@@ -25,6 +25,7 @@ gem 'font-awesome-rails'
 gem 'simple_form'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'sabisu_rails', github: "jvrsgsty/sabisu-rails"
 gem 'delayed_job_active_record'
 gem "factory_girl_rails"
 gem 'ffaker'
