@@ -13,7 +13,11 @@ class Order < ApplicationRecord
 
   #line 17
   def set_total!
-    self.total = self.products.map(&:price).sum
+    # self.total = self.products.map(&:price).sum
+    self.total = 0
+    placements.each do |placement|
+      self.total += placement.product.price * placement.quantity
+    end
   end
 
   def build_placements_with_product_ids_and_quantities(product_ids_and_quantities)
