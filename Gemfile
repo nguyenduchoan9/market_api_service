@@ -11,7 +11,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
-gem 'turbolinks'
+gem 'turbolinks', '~> 5'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # Use jquery as the JavaScript library
@@ -19,6 +19,7 @@ gem 'jquery-rails'
 gem "devise"
 #Api gems
 gem 'active_model_serializers', "~> 0.8.0"
+gem 'compass'
 gem 'compass-rails'
 gem 'furatto'
 gem 'font-awesome-rails'
@@ -30,10 +31,10 @@ gem 'delayed_job_active_record'
 gem "factory_girl_rails"
 gem 'ffaker'
 
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
-  gem 'puma'
 end
 
 group :doc do
